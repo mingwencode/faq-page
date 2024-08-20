@@ -1,38 +1,83 @@
-.App {
+body {
+  font-family: sans-serif;
+  -webkit-font-smoothing: auto;
+  -moz-font-smoothing: auto;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: auto;
+  text-rendering: optimizeLegibility;
+  font-smooth: always;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  background: #FFF5D9;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+main {
+  margin-top: 40px
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+.accordion {
+  width:80%;
+  margin: 30px auto;
+  display:flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: left;
+}
+.accordion>:last-child{
+  border-bottom: 0.1px solid rgb(209, 207, 207);
+}
+h1 {
+  font-size: 1.5rem;
+}
+.item {
+  border: 0.1px solid rgb(209, 207, 207);
+  border-bottom:none;
+  background-color: white;
+  padding: 20px;
+  transition: margin-bottom 0.4s ease-in;
+
+}
+.item.open {
+  margin-bottom: 10px;
+  border-bottom: 0.1px solid rgb(209, 207, 207);
 }
 
-.App-link {
-  color: #61dafb;
+.header {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: color 0.4s ease;
+}
+.header.open {
+  color: #146EF6;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out,
+    color 0.4s ease;
+  line-height: 1.4;
+}
+
+.panel.open {
+  max-height: 1000px;
+  color: rgb(86, 83, 83);
+}
+
+.panel-content {
+  padding-top: 10px;
+}
+
+.icon {
+  transition: transform 0.8s ease;
+
+}
+
+
+.icon.up {
+  transform: rotate(180deg);
+}
+
+/* Rotation for the down caret */
+.icon.down {
+  transform: rotate(0deg);
 }
